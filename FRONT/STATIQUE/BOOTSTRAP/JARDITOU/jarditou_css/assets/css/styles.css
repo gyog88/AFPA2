@@ -1,0 +1,26 @@
+/*redimension de la taille du texte par rapport au viewpoint */
+h1 {
+   font-size: 2.5vmax
+ }
+
+ h2,
+     legend {
+         font-size: 4vh;
+     }
+
+ form .form-group .form-row .col {
+   font-size: 1rem;
+   font-weight: 500;
+ }
+ p {
+   font-size: 1rem;
+ }
+
+ form .form-group .form-row {
+   padding-bottom: 1rem;
+ }
+
+ .img-responsive {
+   width: 10rem;
+   height: auto;
+ }

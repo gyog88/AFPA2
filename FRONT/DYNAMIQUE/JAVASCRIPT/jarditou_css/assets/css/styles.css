@@ -1,0 +1,33 @@
+/*redimension de la taille du texte par rapport au viewpoint */
+ h1 {
+   font-size: 2.5vmax
+ }
+
+ .container .row .col section article h2 {
+ font-size: 2vmax
+}
+
+
+.container .row .col section article h2,
+     legend {
+         font-size: 4vh;
+     }
+
+ .container .row .col section article form .form-group .form-row .col {
+   font-size: 1rem;
+   font-weight: 500;
+ }
+ .container .row .col section article p {
+   font-size: 1rem;
+ }
+
+ .container .row .col section article form .form-group .form-row {
+   padding-bottom: 1rem;
+ }
+
+
+/* classe .img-responsive qui mettre les images de la page tableau.html à la bonne dimension selon l'écran sur lequel on se trouve */
+ .img-responsive {
+   width: 10rem;
+   height: auto;
+ }

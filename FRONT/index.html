@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- Encodage UTF-8 conçu pour coder l'ensemble des caractères -->
+    <meta charset="UTF-8" />
+
+    <!-- Permet d’indiquer comment le navigateur doit afficher la page sur différents appareils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- La balise meta-description est très importante en référencement naturel, elle doit être utile, attrayante et persuasive -->
+    <meta name="description" content="Evaluation, Javascript - AFPA, Septembre 2020" />
+
+    <!-- L'Élément title utile et obligatoire -->
+    <title>EVALUATION FRONT END</title>
+
+    <!-- Icone de l'onglet Attention l'extension de l'image doit être en .ico-->
+    <!-- <link rel="icon" href="" /> -->
+
+    <!-- On relie ensuite nos feuilles de styles CSS. Attention: toujours charger nos feuilles CSS APRES avoir chargé BOOTSTRAP-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+
+
+
+</head>
+
+<body>
+    <!--DEBUT CONTAINER -->
+    <div class="container">
+        <div class="row p-3">
+            <div class="col-12 col-sm-12">
+
+                <header class="w-100 bg-dark text-white p-2">
+                    <h1 class="d-flex justify-content-center">Evaluation FRONT END</h1>
+                    <blockquote class="d-flex justify-content-center">HTML - CSS - BOOTSTRAP - JavaScript</blockquote><i
+                        class="d-flex justify-content-end">Geoffrey Guilbert</i>
+                </header><br>
+                <section>
+                    <div class="d-flex d-sm-flex justify-content-between">
+                        <img src="./img_accueil_eval/html5.png"
+                            style="height:6rem" />
+                        <img src="./img_accueil_eval/css3.jpg"
+                            style="height:6rem" />
+                        <img src="./img_accueil_eval/bootstraplogo.jpeg"
+                            style="height:6rem" />
+                        <img src="./img_accueil_eval/jslogo.jpeg"
+                            style="height:6rem" />
+                    </div>
+                    <hr />
+                    <br />
+                    <article>
+
+
+
+                        <h2>Exercice 1</h2>
+                        <p class="lead">Calcul du nombre de jeunes, de moyens et de vieux</p>
+
+                        <button type="button" class="btn btn-success" id="age" name="age">Lancer le calcul des
+                            âges</button>
+                        <p id="reponseAge"></p>
+                        <hr />
+
+
+                        <h2>Exercice 2</h2>
+                        <p class="lead">Table de multiplication</p>
+
+                        <button type="button" class="btn btn-primary" id="TableMulti" name="TableMulti">Afficher une
+                            table de multiplication</button>
+                        <p id="reponseTableMulti"></p>
+                        <hr />
+
+
+                        <h2>Exercice 3</h2>
+                        <p class="lead">Recherche d'un prénom</p>
+                        <form>
+                            <div class="form-group">
+                                <p>Voici une liste de prénoms:<br /><i>Audrey, Aurélien, Flavien, Jérémy, Laurent, Melik,
+                                    Nouara, Salem, Samuel, Stéphane</i></p>
+                                <input type="type" name="prenom" class="form-control" id="prenom" />
+                                <button type="button" class="btn btn-danger mt-2" id="supprimer"
+                                    name="supprimer">Supprimer un prénom</button>
+                                <p id="reponsePrenom2"></p>
+                            </div>
+                        </form>
+                        <hr />
+
+
+                        <h2>Exercice 4</h2>
+                        <p class="lead"></p>Total d'une commande</p>
+                        <label for="PU">Prix Unitaire (€):</label>
+                        <input type="text" name="PU" id="PU" class="form-control" placeholder="00.00" />
+                        <label for="QTECOM">Quantité commandée:</label>
+                        <input type="text" name="QTECOM" id="QTECOM" class="form-control" placeholder="0" />
+                        <input type="button" onClick="CalculTotal(PU.value,QTECOM.value)" id="total" name="total"
+                            class="btn btn-warning mt-2" value="Total" />
+                        <div id="reponseTotalCommande"></div>
+                        <hr />
+
+
+                        <h2>Vérification d'un formulaire</h2>
+
+                        <p>Reportez-vous à mon site JARDITOU - <a href="./DYNAMIQUE/JAVASCRIPT/index.html" target="_blank">version complète</a> <i>(HTML, CSS, BOOTSTRAP, JavaScript)</i></p>
+                        <p>JARDITOU - <a href="./STATIQUE/BOOTSTRAP/JARDITOU/index.html" target="_blank">version
+                                BOOTSTRAP</a></p>
+                        <p>JARDITOU - <a href="./STATIQUE/CSS/JARDITOU/index.html" target="_blank">version CSS</a></p>
+                        <p>JARDITOU - <a href="./STATIQUE/HTML/JARDITOU/index.html" target="_blank">version HTML</a></p>
+
+                    </article>
+                </section>
+
+            </div>
+            <!--fin de col-->
+        </div>
+        <!--fin de row-->
+    </div>
+    <!--FIN CONTAINER CENTRAL---------------------------------------------------------------------------------------------->
+
+    <!-- fichiers nécessaires à BOOTSTRAP. Attention: respecter l'ordre de chargement. Toujours à mettre avant la balise "</body>" -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="script_eval.js"></script>
+</body>
+
+</html>

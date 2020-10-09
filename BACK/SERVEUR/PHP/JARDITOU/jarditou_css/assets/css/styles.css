@@ -1,0 +1,111 @@
+/*redimension de la taille du texte par rapport au viewpoint */
+h1 {
+  font-size: 2.5vmax
+}
+
+.container .row .col section article h2 {
+  font-size: 2vmax
+}
+
+
+.container .row .col section article h2,
+legend {
+  font-size: 4vh;
+}
+
+.container .row .col section article form .form-group .form-row .col {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.container .row .col section article p {
+  font-size: 1rem;
+}
+
+.container .row .col section article form .form-group .form-row {
+  padding-bottom: 1rem;
+}
+
+
+
+/*la classe .tabProduits représente le tableau de la page tableau.php*/
+.tabProduits {
+  margin: 0px;
+  padding: 0px;
+}
+
+.tabProduits tr th {
+  border: none;
+  border-bottom: 1px solid white;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+.tabProduits tr td {
+  border: none;
+  border-bottom: 1px solid white;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+/* classe .img-responsive qui mettre les images de la page tableau.html à la bonne dimension selon l'écran sur lequel on se trouve */
+.img-responsive {
+  width: auto;
+  max-height: 10rem;
+}
+
+/* classe .img-responsive qui mettre les images de la page detail.html à la bonne dimension selon l'écran sur lequel on se trouve */
+.img-responsive-details {
+  width: auto;
+  max-height: 15rem;
+}
+
+.icon{
+  height:1.5em;
+  width:auto;
+}
+
+/* sur la page tableau.php, affichage du mot 'bloqué' si l'article est bloqué */
+.articleBloque {
+  background-color: red;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 25px;
+}
+
+.articleRupture {
+  background-color: orange;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 6px;
+  border-radius: 25px;
+}
+
+
+/* sur la page tableau.php, style des liens qui mènent à la page details.php */
+.lienDetails {
+  color: red;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.lienDetails:visited {
+  color: red;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.lienDetails:hover {
+  color: red;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.container .row .col article section .form-block .form-group .form-row{
+  margin-top:20px;
+}

@@ -1,0 +1,40 @@
+﻿# Atelier Professionnel Citoyen Responsable / Eco-conception
+
+## C'est quoi pour vous être citoyen responsable dans un cadre professionnel ?
+
+Pistes de réponse :
+* Eteindre son poste et les écrans
+* Limiter les impressions et/ou imprimer recto-verso
+* Faire du covoiturage et/ou faire du télétravail
+* Mettre en place dans l'entreprise un systeme de recyclage des dechets
+* Réparer le matériel informatique
+* Réutiliser la chaleur émise des centres d'hébergements
+* Supprimer et/ou trier sa boite mail
+* Limiter la taille de sa signature électronique
+
+## Qu'est-ce qu'un site éco-conçu ?
+
+Il existe de nombreuses définitions de l’éco-conception, elles ont évolué avec le temps et les retours d’expérience. 
+Ici vous trouverez l'une des définitions les plus communément admises au niveau français :
+
+**« L’éco-conception consiste à intégrer l’environnement dès la conception d'un produit ou service, et lors de toutes les étapes de son cycle de vie » (AFNOR, 2004)**
+
+## Quelles actions puis-je mettre concrètement en place ? 
+
+Pistes de réponses :
+* Choisir son hébergeur
+* minifier les ressources CSS
+* minifier les ressources JavaScript
+* utiliser un compresseur d'images
+* reduire le nombre d'article aperçu en premiere page sur un site e-commerce (Ex: pagination)
+* Optimiser ses requêtes SQL
+* Les formulaires comportent une aide à la saisie pour éviter un trop grand nombre de requete serveur
+* Limiter le nombre de click et le nombre de page
+
+## Pistes de réflexion :
+
+* Peut on dire qu'un site eco conçu est un site plus performant ? 
+* En quoi cela influence t'il mon referencement (SEO) ? 
+
+## Ressource
+[Les check-lists Opquast pour un meilleur Web](https://checklists.opquast.com/fr/)

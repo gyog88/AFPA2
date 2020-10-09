@@ -1,0 +1,139 @@
+body{
+   margin:5px;
+   padding:5px;
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   font-size:1rem;
+}
+
+th {
+   font-size: 20px;
+   font-weight: bold;
+   text-align: left;
+}
+
+td{
+   text-align:left;
+}
+
+/* top_menu et bottom_menu sont des classes de balises <nav> pour les menus de liens en haut et en bas de page */
+.top_menu, .bottom_menu{
+   background-color: black;
+   float: left;
+   position:relative;
+   width:98%;
+   padding:1%;
+   margin-bottom: 1%;
+   font-size: 12pt;
+   color:white;
+}
+
+.top_menu ul li a, .bottom_menu ul li a {
+   color:white;
+}
+
+.top_menu ul li a:visited, .bottom_menu ul li a:visited {
+   color:white;
+}
+
+/*logo en haut à gauche de la page. ceci est une balise img */
+.logo{
+   float:left;
+   height:6rem;
+   margin:0%;
+   padding:0%;
+}
+
+/*slogan en haut à droite de la page. ceci est une balise blockquote*/
+.slogan{
+   float:right;
+   height:10%;
+   width:50%;
+   margin:0%;
+   padding:2%;
+   text-align:left;
+   font-size:2rem;
+}
+
+/* banderole publicitaire en dessous du menu du haut. ceci est une balise img */
+.advertisement{
+   float:left;
+   position:relative;
+   width:100%;
+}
+
+
+section{
+   width:65%;
+   position:static;
+   float:left;
+   overflow:auto;
+   height:500px;
+}
+
+/*colonne grise de droite */
+.colonne_droite{
+   float:right;
+   position:relative;
+   width: 31%;
+   padding:2%;
+   height:500px;
+   overflow:auto;
+   background-color: lightgray;
+}
+
+/*images du tableau de la page tableau.html */
+.img_tab{
+   height:80px;
+}
+
+#centre_page{
+   margin-top:1%;
+   margin-bottom:1%;
+   float:right;
+   width:100%;
+   position:static;
+}
+
+nav ul li{
+   display:inline;
+}
+
+img{
+   max-width:100%;
+   height: auto;
+}
+
+/* spécifications d'affichage sur smartphones */ 
+@media screen and (max-width:576px){ 
+   h1{
+      font-size:20px;
+   }
+   /*ceci masque la colonne de droite si on se trouve sur un écran de largeur 576px max. (exemple: smartphones) */
+   .colonne_droite{
+      visibility: hidden;
+      display:none;
+   /*ceci agrandit la "main_section" sur les smartphones */ 
+   }
+   .main_section{
+      width:100%;
+   }
+   textarea{
+      width:100%;
+   }
+   nav ul li{
+      display:block;
+   }
+}
+
+@media screen and (max-width: 768px) 
+{ 
+    h1 
+    { 
+        font-size : 40px;
+    } 
+}
+
+.selector-for-some-widget {
+   box-sizing: content-box;
+ }
+

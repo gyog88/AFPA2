@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<!-- Debut de la balise head -->
+
+<head>
+
+    <!-- Encodage UTF-8 conçu pour coder l'ensemble des caractères -->
+    <meta charset="UTF-8">
+
+    <!-- Permet d’indiquer comment le navigateur doit afficher la page sur différents appareils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+
+    <!-- La balise meta-description est très importante en référencement naturel, elle doit être utile, attrayante et persuasive -->
+    <meta name="description" content="Jarditou, paysagiste en Picardie depuis 70 ans!" />
+
+    <!-- L'Élément title utile et obligatoire -->
+    <title>JARDITOU</title>
+
+    <!-- Icone de l'onglet Attention l'extension de l'image doit être en .ico-->
+    <!-- <link rel="icon" href="" /> -->
+
+    <!-- On relie ensuite nos feuilles de styles CSS -->
+    <link rel="stylesheet" href="jarditou_css/assets/css/styles.css">
+
+
+</head>
+<!-- Fin de la balise head -->
+
+<!-- --------------------------------------------------------------------------------------------------------- -->
+<!-- N'oubliez pas de commenter votre code ! Utile pour les petits et les gros projets, en solo ou en équipe ! -->
+<!-- --------------------------------------------------------------------------------------------------------- -->
+
+<!-- Debut de la balise body -->
+
+<body>
+    <img src="jarditou_css/src/img/jarditou_logo.jpg" alt="Logo Jarditou" height="75" />
+
+    <blockquote>La qualité depuis 70 ans.</blockquote>
+    <nav>
+        <ul type="disc">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="tableau.html">Tableau</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <img src="jarditou_css/src/img/promotion.jpg" alt="promotion sur lames de terrasses" title='promotion sur lames de terrasses'width="100%" />
+    <h1>Contact</h1>
+
+    <hr>
+    <p>* Ces zones sont obligatoires.</p>
+    <form action="http://bienvu.net/script.php" method="POST" id="formulaire_contact1" name="formulaire_contact1">
+        <fieldset>
+            <legend>Vos coordonnées</legend>
+            <table>
+                <tr>
+                    <td>
+                        <lable for="name">Votre Nom*:</lable>
+                    </td>
+                    <td><input name="name" id="name" type="text" placeholder="Votre nom" required autofocus /></td>
+                </tr>
+                <tr>
+                    <td><label for="surname">Votre Pr&eacute;nom*:</label></td>
+                    <td><input name="surname" id="surname" type="text" placeholder="Votre pr&eacute;nom" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sexe*:</td>
+                    <td>
+                        <label for="sex"><input name="sex" id="sexF" value="female"
+                                type="radio" />F&eacute;minin</label>
+                        <label for="sex"><input name="sex" id="sexM" value="male" type="radio" required /><label
+                                for="sexM">Masculin</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="dob">Date de naissance*:</label></td>
+                    <td><input name="dob" id="dob" type="date" required /></td>
+                </tr>
+                <tr>
+                    <td><label for="postcode">Code Postal*:</label></td>
+                    <td><input name="postcode" id="postcode" type="text" maxlength="5" /></td>
+                </tr>
+                <tr>
+                    <td><label for="address">Adresse:</label></td>
+                    <td><input name="address" id="address" type="text" placeholder="Votre adresse" /></td>
+                </tr>
+                <tr>
+                    <td><label for="city">Ville:</label></td>
+                    <td><input name="city" id="city" type="text" placeholder="Votre ville" /></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email*:</label></td>
+                    <td><input name="email" id="email" type="email" placeholder="john.smith@afpa.fr" required /></td>
+                </tr>
+            </table>
+        </fieldset>
+        <br />
+        <fieldset>
+            <legend>Votre demande</legend>
+            <table>
+                <tr>
+                    <td>
+                        <lable for="suject">Sujet*:</lable>
+                    </td>
+                    <td>
+                        <select id="subject_list">
+                            <option value="0" selected disabled>Veuillez sélectionner une demande
+                            <option value="Mes commandes"></option>
+                            <option value="Question sur un produit"></option>
+                            <option value="Réclamation"></option>
+                            <option value="Autres"></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Votre question*:</td>
+                    <td><textarea name="question" type="textarea" placeholder="Tapez ici votre question"
+                            form="formulaire_contact1" cols="60" rows="5" required></textarea></td>
+                </tr>
+
+            </table>
+        </fieldset>
+        <br />
+        <input type="checkbox" name="traitement" required /><label for="traitement">* J'accepte le traitement informatique de ce
+        formulaire.</label><br /><br />
+        <input type="submit" name="envoyer" id="envoyer" value="Envoyer"> <input type="reset" name="annuler"
+            value="Annuler" />
+
+    </form>
+    <nav>
+        <ul type="disc">
+            <li><a href="#">Mentions légales</a></li>
+            <li><a href="#">Horaires</a></li>
+            <li><a href="#">Plan du site</a></li>
+        </ul>
+    </nav>
+</body>
+<!-- Fin du document HTML -->
+
+</html>
