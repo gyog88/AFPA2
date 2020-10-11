@@ -1,20 +1,17 @@
 <?php 
 
 //paramétrage de la base de données
-        require "connexion_db.php";
+require "connexion_db.php";
 
-        //connexion à la base de données
-        $db = connexionBase();
-
+//connexion à la base de données
+$db = connexionBase();
 
 //lancement de la requête qui permettra de recupérer toutes les infos sur le produit $pro_id
-$requete = $db->prepare("SELECT * FROM produits INNER JOIN categories on produits.pro_cat_id=categories.cat_id ORDER BY pro_cat_id, pro_ref");
+$requete = $db->prepare("SELECT * FROM produits INNER JOIN categories on produits.pro_cat_id=categories.cat_id ORDER BY pro_cat_id, pro_libelle");
 $requete->execute();
 $produit = $requete->fetch();
 
 include 'header.php';
-
-
         ?>
     <!-- CORPS DE PAGE -->
     <div class="row p-0 m-0">

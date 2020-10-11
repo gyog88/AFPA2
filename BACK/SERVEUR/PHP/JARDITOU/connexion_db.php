@@ -13,7 +13,7 @@ if ($_SERVER["SERVER_NAME"] == "dev.amorce.org") {
     }
 
      // Paramètres de connexion serveur local
-    if (($_SERVER["SERVER_NAME"] == "developpementwebafpa")||($_SERVER["SERVER_NAME"] == "127.0.0.1")){   
+    if (($_SERVER["SERVER_NAME"] == "jarditou")||($_SERVER["SERVER_NAME"] == "127.0.0.1")){   
         $host = "localhost";
         $login= "root";     // Votre login d'accès au serveur de BDD 
         $password="";    // Le Password pour vous identifier auprès du serveur

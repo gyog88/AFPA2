@@ -103,7 +103,7 @@ $requeteCategories->execute();
                 
                 <!--Début du Formulaire---------------------------------------->
                 <form method="POST" action="add_script.php" id="form_ADD_produit" name="form_ADD_produit"
-                    class="form-block mt-5" enctype="multipart/form-data">
+                    class="form-block mt-3" enctype="multipart/form-data">
                     <div class="form-group ">
                         <!------AJOUT DU FICHIER IMAGE------>
                         <div class="form-row">

@@ -62,9 +62,9 @@ legend {
   max-height: 15rem;
 }
 
-.icon{
-  height:1.5em;
-  width:auto;
+.icon {
+  height: 1.5em;
+  width: auto;
 }
 
 /* sur la page tableau.php, affichage du mot 'bloqué' si l'article est bloqué */
@@ -106,6 +106,7 @@ legend {
   font-weight: bold;
 }
 
-.container .row .col article section .form-block .form-group .form-row{
-  margin-top:20px;
+.active {
+  font-weight: bold;
+  font-style: italic;
 }

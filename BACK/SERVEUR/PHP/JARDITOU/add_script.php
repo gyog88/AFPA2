@@ -147,7 +147,7 @@ if($listError!=""){
   exit();
 }else{
   //construction de la requête INSERT sans injection SQL
-  $requete = $db->prepare("INSERT INTO produits VALUES
+  $requeteADD = $db->prepare("INSERT INTO produits VALUES
   pro_cat_id=:pro_cat_id,
   pro_ref=:pro_ref,
   pro_libelle=:pro_libelle,
@@ -155,8 +155,8 @@ if($listError!=""){
   pro_prix=:pro_prix,
   pro_stock=:pro_stock,
   pro_couleur=:pro_couleur,
+  pro_bloque=:pro_bloque,
   pro_d_ajout=:pro_d_ajout");
-
 
   $requeteADD->bindValue(':pro_cat_id', $pro_cat_id, PDO::PARAM_INT);
   $requeteADD->bindValue(':pro_ref', $pro_ref, PDO::PARAM_STR);
