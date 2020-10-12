@@ -80,14 +80,31 @@
                 align-items-start align-items-sm-start align-items-lg-center
                 justify-content-end justify-content-sm-end">
                 <li class="nav-item">
-                  <a class="nav-link text-light <?php if(basename($_SERVER['PHP_SELF'])=="add.php") echo "active"; ?>"
-                    href="add.php">Ajouter Produit</a>
+
+
+
+<div class="dropdown show">
+  <a href="#" role="button" class="nav-link text-light" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Gestion des Produits
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="add.php">Ajout</a>
+    <a class="dropdown-item" href="#">Modification</a>
+    <a class="dropdown-item" href="multi_delete.php">Suppression</a>
+  </div>
+</div>
+
+
+
+
+
                 </li>
                 <li class="nav-item">
-                  <form action="#" class="form-inline" method="POST" id="form_search_promo">
+                  <form action="recherche.php" class="form-inline" method="POST" id="form_recherche" name="form_recherche">
                     <div class="form-group">
-                      <input type="search" class="input-sm m-1 m-sm-1 m-lg-0 mr-lg-1" name="rechercher" id="rechercher"
-                        placeholder="Search" />
+                      <input type="text" class="input-sm m-1 m-sm-1 m-lg-0 mr-lg-1" name="recherche" id="recherche"
+                        placeholder="Recherche produit" />
                       <button type="submit" class="btn btn-success btn-sm m-1 m-sm-1 ml-auto ml-sm-auto m-lg-0 mr-lg-1">
                         Rechercher
                       </button>

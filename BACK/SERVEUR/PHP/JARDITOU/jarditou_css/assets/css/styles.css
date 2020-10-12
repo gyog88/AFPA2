@@ -102,3 +102,11 @@ legend {
   font-weight: bold;
   font-style: italic;
 }
+
+.page-link{
+  color:darkgreen;
+  border-radius: 5px;
+  border-color:darkgreen;
+  margin:2px;
+
+}
