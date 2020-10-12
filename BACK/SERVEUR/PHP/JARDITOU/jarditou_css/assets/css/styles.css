@@ -68,23 +68,15 @@ legend {
 }
 
 /* sur la page tableau.php, affichage du mot 'bloqué' si l'article est bloqué */
-.articleBloque {
-  background-color: red;
+.etiquette {
   color: white;
   text-transform: uppercase;
-  font-weight: bold;
+  font-size:0.80rem;
   padding: 5px;
+  font-weight: bold;
   border-radius: 25px;
 }
 
-.articleRupture {
-  background-color: orange;
-  color: white;
-  text-transform: uppercase;
-  font-weight: bold;
-  padding: 6px;
-  border-radius: 25px;
-}
 
 
 /* sur la page tableau.php, style des liens qui mènent à la page details.php */

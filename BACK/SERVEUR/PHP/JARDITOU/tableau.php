@@ -1,4 +1,7 @@
-<?php 
+<?php
+//on nettoie le cache
+header("Cache-Control: no-cache, must-revalidate" ); 
+include 'header.php';
 
 //paramétrage de la base de données
 require "connexion_db.php";
@@ -6,12 +9,29 @@ require "connexion_db.php";
 //connexion à la base de données
 $db = connexionBase();
 
+//on récupère le numéro de page en cours. 1 par défaut
+if (isset($_GET['pageno'])) {
+  $pageno = $_GET['pageno'];
+} else {
+  $pageno = 1;
+}
+
+//on définit le nombre de pages à afficher
+$no_of_records_per_page = 5;
+$offset = ($pageno-1) * $no_of_records_per_page; 
+
+$request_total_pages = $db->prepare("SELECT COUNT(pro_id) FROM produits");
+$request_total_pages->execute();
+$total_rows=$request_total_pages->fetch(PDO::FETCH_NUM);
+$total_pages = ceil($total_rows[0] / $no_of_records_per_page);
+
+
 //lancement de la requête qui permettra de recupérer toutes les infos sur le produit $pro_id
-$requete = $db->prepare("SELECT * FROM produits INNER JOIN categories on produits.pro_cat_id=categories.cat_id ORDER BY pro_cat_id, pro_libelle");
+$requete = $db->prepare("SELECT * FROM produits INNER JOIN categories on produits.pro_cat_id=categories.cat_id ORDER BY pro_cat_id, pro_libelle LIMIT :offset, :no_of_records_per_page");
 $requete->execute();
 $produit = $requete->fetch();
 
-include 'header.php';
+//https://www.myprogrammingtutorials.com/create-pagination-with-php-and-mysql.html 
         ?>
     <!-- CORPS DE PAGE -->
     <div class="row p-0 m-0">
@@ -41,33 +61,41 @@ include 'header.php';
 while (isset($produit->pro_id)){
   ?>
                 <tr class='table-stripped table-warning' scope='row'>
-                  <th class="d-sm-flex justify-content-center justify-content-sm-center" >
-                    <img src="./jarditou_css/src/img/<?php echo $produit->pro_id.'.'.$produit->pro_photo; ?>"
-                    class="img-responsive img-thumbnail" alt="<?php echo $produit->cat_nom." ".$produit->pro_libelle; ?>" title="<?php echo $produit->cat_nom." ".$produit->pro_libelle; ?>" class="img-responsive img-thumbnail"/>
-                    </th>
-                  <td class="text-center"><?php echo $produit->pro_id; ?></td>
-                  <td><?php echo $produit->pro_ref; ?></td>
-                  <td><a href='details.php?pro_id=<?php echo $produit->pro_id; ?>' class='lienDetails'><?php echo $produit->pro_libelle; ?></a></td>
-                  <td><?php echo $produit->pro_prix; ?>€</td>
+                  <td class="d-sm-flex justify-content-center justify-content-sm-center" >
+                  <?php if(!empty($produit->pro_photo)){ ?>
+                    <img src="./jarditou_css/src/img/<?=($produit->pro_id.'.'.$produit->pro_photo); ?>"
+                    class="img-responsive img-thumbnail" alt="<?=($produit->cat_nom." ".$produit->pro_libelle); ?>" title="<?=($produit->cat_nom." ".$produit->pro_libelle); ?>" class="img-responsive img-thumbnail"/>
+                  <?php }else{ ?>
+                    <i>Aucune photo disponible pour ce produit.</i>
+                  <?php } ?>
+                    </td>
+                  <td class="text-center"><?=$produit->pro_id; ?></td>
+                  <td><?=$produit->pro_ref; ?></td>
+                  <td><a href='details.php?pro_id=<?=$produit->pro_id; ?>' class='lienDetails'><?=$produit->pro_libelle; ?></a></td>
+                  <td><?=$produit->pro_prix; ?>€</td>
                   <td><?php 
-                    if ($produit->pro_stock==0) echo "<div class='articleRupture'>rupture de stock</div>";
+                    if ($produit->pro_stock==0) echo "<div class='etiquette bg-warning'>rupture de stock</div>";
                     else echo $produit->pro_stock;
                   ?>
                 </td>
-                  <td><?php echo $produit->pro_couleur; ?></td>
-                  <td><?php echo $produit->pro_d_ajout; ?></td>
+                  <td><?=$produit->pro_couleur;?></td>
                   <td><?php
-                  echo $produit->pro_d_modif;
                    if(isset($_GET['ajout'])){
-                       if($_GET['pro_id']==$produit->pro_id)
-                        echo "<small class='d-block p-1 bg-success text-light' style='border-radius: 15px;'>Modification enregistr&eacute;e</small>";
-                   }
-                   
-                   ?>
+                       if($_GET['pro_id']==$produit->pro_id) {
+                   ?> <div class='etiquette bg-success'>Produit ajout&eacute;</div>
+                   <?php
+                   }else echo $produit->pro_d_ajout; } ?>
+                   </td>
+                  <td><?php
+                   if(isset($_GET['modif'])){
+                       if($_GET['pro_id']==$produit->pro_id){ ?>
+                    <div class='etiquette bg-success'>Modification enregistr&eacute;e</div>
+                   <?php
+                   }else echo $produit->pro_d_modif; } ?>
                   </td>
                   <td><?php 
                     if($produit->pro_bloque>0){
-                      echo "<div class='articleBloque'>BLOQU&Eacute;</div>";
+                      echo "<div class='etiquette bg-danger'>BLOQU&Eacute;</div>";
                     } ?></td>
                 </tr>
 
@@ -79,23 +107,32 @@ $produit = $requete->fetch();
  ?>
               </tbody>
             </table>
+            <ul class="pagination">
+    <li><a href="?pageno=1">First</a></li>
+    <li class="<?php if($pageno <= 1){ echo 'disabled'; } ?>">
+        <a href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>">Prev</a>
+    </li>
+    <li class="<?php if($pageno >= $total_pages){ echo 'disabled'; } ?>">
+        <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Next</a>
+    </li>
+    <li><a href="?pageno=<?php echo $total_pages; ?>">Last</a></li>
+</ul>
+
           </article>
         </section>
       </div>
     </div> 
   
 <?php 
+  if(isset($_GET['ajout'])){
+    echo "<script>alert('Votre nouveau produit a bien été ajouté à la base de données');</script>";
+  }
+  if(isset($_GET['modif'])){
+    echo "<script>alert('Les modifications apportées à votre produit ont bien été enregistrées.');</script>";
+  }
+  if(isset($_GET['supp'])){
+    echo "<script>alert('Le produit a été supprimé.');</script>";
+  }
 
-if(isset($_GET['ajout'])){
-
-echo "<script>alert('Votre nouveau produit a bien été ajouté à la base de données');</script>";
-
-}
-if(isset($_GET['modif'])){
-  echo "<script>alert('Les modifications apportées à votre produit ont bien été enregistrées.');</script>";
-
-}
-
-
-
-include 'footer.php'; ?>
+  include 'footer.php';
+?>

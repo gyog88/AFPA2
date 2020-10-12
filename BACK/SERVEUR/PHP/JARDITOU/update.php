@@ -1,4 +1,6 @@
-<?php    
+<?php
+//on nettoie le cache
+header("Cache-Control: no-cache, must-revalidate" );
 include 'header.php';
 
  //paramétrage de la base de données
@@ -217,7 +219,7 @@ if(isset($produit->Err_pro_photo)){
                             <div class="col">
                                 <lable for="pro_prix">Prix (€) :</lable>
                                 <div id="errorPrix" class="text-danger"><?=$err_prix;?></div>
-                                <input type="text" class="form-control form-control-sm" name="pro_prix" id="pro_prix"
+                                <input type="number" step="0.01" min="0.01" max="999999.99" class="form-control form-control-sm" name="pro_prix" id="pro_prix"
                                     value="<?=$produit->pro_prix;?>" />
                             </div>
                         </div>
@@ -233,7 +235,7 @@ if(isset($produit->Err_pro_photo)){
                                     ?>
                                 </lable>
                                 <div id="errorStock" class="text-danger"><?=$err_stock;?></div>
-                                <input type="number" maxlength="11" class="form-control form-control-sm"
+                                <input type="number" min="0" max="99999999999" class="form-control form-control-sm"
                                     name="pro_stock" id="pro_stock" value="<?=$produit->pro_stock;?>" />
                             </div>
                         </div>

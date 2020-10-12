@@ -63,11 +63,6 @@ $produit->pro_prix=strip_tags($produit->pro_prix);
 if($produit->pro_prix==""){
   $tabError[]="Err_prix=0";
 }else{
-    //on gère aussi le problème virgule VS point pour le décimal
-    if(strstr($produit->pro_prix, ",")) {
-      $produit->pro_prix=str_replace(',','.',$produit->pro_prix);
-    }
-    $produit->pro_prix =number_format($produit->pro_prix, 2, '.', ' ');
   if(is_nan($produit->pro_prix)){
     $tabError[]="Err_prix=1";
   }elseif($produit->pro_prix<0) $tabError[]="Err_prix=2";  //on vérifie que le prix entré est un chiffre positif
@@ -107,11 +102,13 @@ if($produit->pro_bloque=='1'){
 //--------VERIFICATION + UPLOAD DE L'IMAGE----------------
 
 if(!empty($_FILES["photoProduit"]['name'])){
-$target_dir = "jarditou_css/src/img/";
-$target_file = $target_dir.basename($_FILES["photoProduit"]["name"]);
+  $target_dir = "./jarditou_css/src/img/";
+  $target_file = $target_dir.basename($_FILES["photoProduit"]["name"]);
+  $imageFileType = substr(strrchr($_FILES["photoProduit"]["name"], "."), 1);
+  $renamed_target_file=$target_dir.$produit->pro_id.'.'.$imageFileType;
+
+//on définit la variable qui enchainera un upload si elle reste à true
 $uploadOk = true;
-$imageFileType = substr(strrchr($_FILES["photoProduit"]["name"], "."), 1);
-$renamed_target_file=$target_dir.$produit->pro_id.'.'.$imageFileType;
 
 // On vérifie si l'image est vraiment une image
 if(isset($_POST["submit"])) {
@@ -140,10 +137,12 @@ if (!(in_array($extension, $tabExtensions))){
 if ($uploadOk){
 
   //on efface l'ancienne image (si elle existe)
-  if (file_exists($produit->pro_id.'.'.$produit->pro_photo)) {
-    unlink($produit->pro_id.'.'.$produit->pro_photo);
+  if (file_exists($target_dir.$produit->pro_id.'.'.$produit->pro_photo)) {
+    unlink($target_dir.$produit->pro_id.'.'.$produit->pro_photo);
   }
-
+//var_dump($_FILES["photoProduit"]["tmp_name"]);
+//var_dump($renamed_target_file);
+//die();
   move_uploaded_file($_FILES["photoProduit"]["tmp_name"], $renamed_target_file);
   $produit->pro_photo= $extension;
 }
@@ -154,16 +153,8 @@ if ($uploadOk){
 $listError=implode('&&',$tabError);
 
 if($listError!=""){
-    //on récupère le nom de catégorie du produit
-    $requeteCat = $db->prepare("SELECT cat_nom FROM categories WHERE categories.cat_id=:pro_cat_id");
-    $requeteCat->bindValue(":pro_cat_id", $produit->pro_cat_id, PDO::PARAM_INT);
-    $requeteCat->execute();
-    $cat_nom= $requeteCat->fetch();
-    $requeteCat->closeCursor();
-
-    $listData="pro_id=".$produit->pro_id."&&pro_cat_id=".$produit->pro_cat_id."&&pro_cat_nom=".$produit->pro_cat_nom."&&pro_ref=".$produit->pro_ref."&&pro_libelle=".$produit->pro_libelle."&&pro_description=".$produit->pro_description."&&pro_prix=".$produit->pro_prix."&&pro_stock=".$produit->pro_stock."&&pro_couleur=".$produit->pro_couleur."&&pro_bloque=".$produit->pro_bloque."&&pro_photo=".$produit->pro_photo;
+    $listData="pro_id=".$produit->pro_id."&&pro_cat_id=".$produit->pro_cat_id."&&pro_ref=".$produit->pro_ref."&&pro_libelle=".$produit->pro_libelle."&&pro_description=".$produit->pro_description."&&pro_prix=".$produit->pro_prix."&&pro_stock=".$produit->pro_stock."&&pro_couleur=".$produit->pro_couleur."&&pro_bloque=".$produit->pro_bloque."&&pro_photo=".$produit->pro_photo;
     header("Location:update.php?$listData&&$listError");
-    apcu_clear_cache();
     exit();
 }else{
   date_default_timezone_set('Europe/Paris');
@@ -200,8 +191,7 @@ if($listError!=""){
   //libère la connexion au serveur de BDD
   $requete->closeCursor();
 
-  header("Location:tableau.php?pro_id=$pro_id&&modif=ok");
-  apcu_clear_cache();
+  header("Location:tableau.php?pro_id=$produit->pro_id&&modif=ok");
   exit();
 }
 ?>

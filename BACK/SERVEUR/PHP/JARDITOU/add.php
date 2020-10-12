@@ -84,13 +84,9 @@ if(isset($produit->Err_pro_photo)){
 
 //-----------------------------------------------------------------------
 
-
-
 //on récupére la liste des catégories "parents" (=sans parents eux même) dans la table catégories de la base de données (pour l'affichage d'une liste de catégories)
 $requeteCategories = $db->prepare("SELECT * FROM categories where (cat_parent IS NULL)");
 $requeteCategories->execute();
-
-
 ?>
 
 <div class="row m-0 p-0 mt-0 ">
@@ -101,12 +97,13 @@ $requeteCategories->execute();
 
             <article class="w-100 w-sm-100">
                 
-                <!--Début du Formulaire---------------------------------------->
+                <!--DEBUT DE FORMULAIRE------------------------------->
                 <form method="POST" action="add_script.php" id="form_ADD_produit" name="form_ADD_produit"
                     class="form-block mt-3" enctype="multipart/form-data">
                     <div class="form-group ">
+
                         <!------AJOUT DU FICHIER IMAGE------>
-                        <div class="form-row">
+                        <div class="form-row mt-1">
                             <div class="col">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -123,8 +120,9 @@ $requeteCategories->execute();
                                 <small>* Seuls les fichiers .jpg, .jpeg et .png seront acceptés</small>
                             </div>
                         </div>
+
                         <!------REFERENCE----->
-                        <div class="form-row">
+                        <div class="form-row mt-1">
                             <div class="col">
                                 <lable for="pro_ref">R&eacute;f&eacute;rence :</lable>
                                 <div id="errorRef" class="text-danger"><?=$err_ref;?></div>
@@ -132,8 +130,9 @@ $requeteCategories->execute();
                                     maxlength="10" value="<?php if(!empty($produit->pro_ref)) echo $produit->pro_ref;?>" />
                             </div>
                         </div>
+
                         <!------CATEGORIE------>
-                        <div class="form-row">
+                        <div class="form-row mt-1">
                             <div class="col">
                                 <lable for="pro_cat">Cat&eacute;gorie :</lable>
                                 <select class="form-control" name="pro_cat_id" id="pro_cat_id">
@@ -162,8 +161,9 @@ $requeteCategories->execute();
                                 </select>
                             </div>
                         </div>
+
                         <!------LIBELLE------>
-                        <div class="form-row">
+                        <div class="form-row mt-1">
                             <div class="col">
                                 <lable for="pro_libelle">Libell&eacute; :</lable>
                                 <div id="errorLib" class="text-danger"><?=$err_libelle;?></div>
@@ -171,8 +171,9 @@ $requeteCategories->execute();
                                     id="pro_libelle" maxlength="200" value="<?php if(!empty($produit->pro_libelle)) echo $produit->pro_libelle;?>" />
                             </div>
                         </div>
+
                         <!------DESCRIPTION------>
-                        <div class="form-row">
+                        <div class="form-row mt-1">
                             <div class="col">
                                 <lable for="pro_description">Description :</lable>
                                 <textarea class="form-control form-control-sm" name="pro_description" maxlength="1000"
@@ -180,17 +181,19 @@ $requeteCategories->execute();
                                 <div id="errorDesc" class="text-danger"></div>
                             </div>
                         </div>
+
                         <!------PRIX------>
-                        <div class="form-row">
+                        <div class="form-row mt-1">
                             <div class="col">
                                 <lable for="pro_prix">Prix :</lable>
                                 <div id="errorPrix" class="text-danger"><?=$err_prix;?></div>
-                                <input type="text" class="form-control form-control-sm" name="pro_prix" id="pro_prix"
+                                <input type="number" step="0.01" min="0.00" max="999999.99" class="form-control form-control-sm" name="pro_prix" id="pro_prix"
                                     value="<?php if(!empty($produit->pro_prix)) echo $produit->pro_prix;?>" />
                             </div>
                         </div>
+
                         <!------STOCK------>
-                        <div class="form-row">
+                        <div class="form-row mt-1">
                             <div class="col">
                                 <lable for="pro_stock">Stock :
                                     <?php
@@ -200,12 +203,13 @@ $requeteCategories->execute();
                                     ?>
                                 </lable>
                                 <div id="errorStock" class="text-danger"><?=$err_stock;?></div>
-                                <input type="number" maxlength="11" class="form-control form-control-sm"
+                                <input type="number" min="0" max="99999999999" class="form-control form-control-sm"
                                     name="pro_stock" id="pro_stock" value="<?php if (isset($produit->pro_stock)) echo $produit->pro_stock;?>" />
                             </div>
                         </div>
+                        
                         <!------COULEUR------>
-                        <div class="form-row">
+                        <div class="form-row mt-1">
                             <div class="col">
                                 <lable for="pro_couleur">Couleur :</lable>
                                 <div id="errorCouleur" class="text-danger"><?=$err_couleur;?></div>
@@ -214,8 +218,9 @@ $requeteCategories->execute();
 
                             </div>
                         </div>
+
                         <!------BLOQUE------>
-                        <div class="form-row">
+                        <div class="form-row mt-1">
                             <div class="col">Désirez-vous bloquer le produit à la vente?
                             
                                 <label class="form-check-label" for="pro_yes">
@@ -230,8 +235,9 @@ $requeteCategories->execute();
                                 
                             </div>
                         </div>
+
                         <!------LIENS retour, modifier, supprimer ------>
-                        <div class="form-row">
+                        <div class="form-row mt-1">
                             <div class="col">
                                 <a href='index.php' class="btn btn-dark"
                                     name="btn_retour_tab" id="btn_retour_tab">Annuler</a>
@@ -241,18 +247,15 @@ $requeteCategories->execute();
                                     class="btn btn-warning" />
                             </div>
                         </div>
+
                     </div>
                     <!--fin de div .form-group-->
                 </form>
-                <!--fin de form -->
-
             </article>
         </section>
     </div> <!-- fin de container col-->
 </div> <!-- fin de container row-->
 
 <?php
-
  include 'footer.php'; 
- 
  ?>
