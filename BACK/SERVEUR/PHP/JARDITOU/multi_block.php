@@ -17,7 +17,7 @@ if (isset($_GET['pageno'])) {
 }
 
 //on définit le nombre de pages à afficher
-$no_of_records_per_page = 5;
+$no_of_records_per_page = 10;
 $offset = ($pageno-1) * $no_of_records_per_page; 
 
 $request_total_pages = $db->prepare("SELECT COUNT(pro_id) FROM produits");
@@ -27,35 +27,35 @@ $total_pages = ceil($total_rows[0] / $no_of_records_per_page);
 
 
 //lancement de la requête qui permettra de recupérer toutes les infos sur le produit $pro_id
-$requete = $db->prepare("SELECT * FROM produits INNER JOIN categories on produits.pro_cat_id=categories.cat_id ORDER BY pro_cat_id, pro_libelle LIMIT :offset, :no_of_records_per_page");
+$requete = $db->prepare("SELECT pro_id, pro_libelle, pro_bloque, pro_ref, pro_stock, pro_prix, pro_description, pro_d_ajout FROM produits ORDER BY pro_libelle LIMIT :offset, :no_of_records_per_page");
 $requete->bindValue(":offset", $offset, PDO::PARAM_INT);
 $requete->bindValue(":no_of_records_per_page", $no_of_records_per_page, PDO::PARAM_INT);
 $requete->execute();
 $produit = $requete->fetch();
 
-//https://www.myprogrammingtutorials.com/create-pagination-with-php-and-mysql.html 
         ?>
 <!-- CORPS DE PAGE -->
 <div class="row p-0 m-0">
   <div class="col-12 col-sm-12 p-0 mb-3 mb-sm-3 shadow bg-white">
     <section class="p-0 m-0 p-sm-0 m-sm-0">
-      <h1 class="p-3">Liste de nos produits</h1>
+      <h1 class="p-3">Blocage de produits</h1>
+      <p class='lead pl-3'>Sélectionnez les produits que vous souhaitez bloquer à la vente.</p>
 
       <article>
 <?php if(!empty($produit->pro_id)){ ?>
+<form method="POST" action="multi_block_script.php" id="form_multi_BLOCK" name="form_multi_BLOCK"
+                    class="form-block">
       <div class="table-responsive w-100">
         <table class="table tabProduits">
           <thead>
             <tr>
-              <th class="text-center" scope='col'>Photo</th>
-              <th class="text-center" scope='col'>ID</th>
+              <th scope='col'></th>
               <th scope='col'>R&eacute;f&eacute;rence</th>
               <th scope='col'>Libell&eacute;</th>
               <th scope='col'>Prix</th>
               <th scope='col'>Stock</th>
-              <th scope='col'>Couleur</th>
+              <th scope='col'>Description</th>
               <th scope='col'>Ajout</th>
-              <th scope='col'>Modif</th>
               <th scope='col'>Bloqué</th>
             </tr>
           </thead>
@@ -65,45 +65,35 @@ $produit = $requete->fetch();
 while (isset($produit->pro_id)){
   ?>
             <tr class='table-stripped table-warning' scope='row'>
-              <td class="justify-content-center justify-content-sm-center">
-                <?php if(!empty($produit->pro_photo)){ ?>
-                <img src="./jarditou_css/src/img/<?=($produit->pro_id.'.'.$produit->pro_photo); ?>"
-                  class="img-responsive img-thumbnail" alt="<?=($produit->cat_nom." ".$produit->pro_libelle); ?>"
-                  title="<?=($produit->cat_nom." ".$produit->pro_libelle); ?>" class="img-responsive img-thumbnail" />
-                <?php }else{ ?>
-                <i>Aucune photo disponible pour ce produit.</i>
-                <?php } ?>
+              <td class="text-justify">
+              <label class="switch">
+                <input type='hidden' value="<?=$produit->pro_id;?>" name="pro_id[]" id="<?="ID_".$produit->pro_id;?>" >
+              <input type="checkbox" value="<?=$produit->pro_id;?>" name="pro_bloque[]" id="<?="pro_bloque_".$produit->pro_id;?>" <?php if($produit->pro_bloque==1) echo "checked"; ?> />
+  <span class="slider round"></span>
+</label>
+                
               </td>
-              <td class="text-center"><?=$produit->pro_id; ?></td>
-              <td><?=$produit->pro_ref; ?></td>
+              <td><label for="<?=$produit->pro_id;?>"><?=$produit->pro_ref; ?></label></td>
               <td><a href='details.php?pro_id=<?=$produit->pro_id; ?>'
                   class='lienDetails'><?=$produit->pro_libelle; ?></a></td>
               <td><?=$produit->pro_prix; ?>€</td>
-              <td><?php if ($produit->pro_stock==0) echo "<img src='./jarditou_css/src/img/stock_epuise.png' style='width:6rem' alt='Rupture de stock!' title='Rupture de stock.' />"; else echo $produit->pro_stock; ?>
+              <td> 
+                <?php if ($produit->pro_stock==0) echo "<img src='./jarditou_css/src/img/stock_epuise.png' style='width:6rem' alt='Rupture de stock!' title='Rupture de stock.' />"; else echo $produit->pro_stock; ?>
               </td>
-              <td><?=$produit->pro_couleur;?></td>
-              <td><?php
-                   if(isset($_GET['ajout'])){
-                       if($_GET['pro_id']==$produit->pro_id) {
-                   ?> <div class='etiquette bg-success'>Produit ajout&eacute;</div>
-                <?php
-                   }else echo $produit->pro_d_ajout; } ?>
+              <td class="text-justify">
+              <?php
+              if(strlen($produit->pro_description)>200){
+                echo substr($produit->pro_description,0,200)."...";
+              }else echo $produit->pro_description; ?>
               </td>
-              <td><?php
-                   if(isset($_GET['modif'])){
-                       if($_GET['pro_id']==$produit->pro_id){ ?>
-                <div class='etiquette bg-success'>Modification enregistr&eacute;e</div>
-                <?php
-                   }else echo $produit->pro_d_modif; } ?>
-              </td>
-              <td><?php 
-                    if($produit->pro_bloque>0){
-                      echo "<div class='etiquette bg-danger'>BLOQU&Eacute;</div>";
-                    } ?></td>
+              <td><?=$produit->pro_d_ajout; ?></td>
+              <td><div class='etiquette bg-danger' <?php 
+                    if($produit->pro_bloque==0) echo "hidden"; ?> >BLOQU&Eacute</div>
+                </td>
             </tr>
 
             <?php 
-//on fait le fetch en fin de boucle 'while'. Il nous retourne une ligne du résultat de la requête.
+    //on fait le fetch en fin de boucle 'while'. Il nous retourne une ligne du résultat de la requête.
   //A chaque fin de boucle, on passera à la ligne suivante du résultat de la requête.
 $produit = $requete->fetch();
 } 
@@ -123,7 +113,14 @@ $produit = $requete->fetch();
           <li><a href="?pageno=<?=$total_pages;?>" class="btn btn-sm btn-outline-success ml-1"><?=$total_pages; ?></a></li>
         </ul>
         </nav>
-<?php } else echo "<p class='lead'>Aucun produit n'est présent dans la base de donn&eacute;es</p>"; ?>
+<div class='d-flex d-sm-flex justify-content-center'>
+    <input type='submit' name='Btn_block_multi' id='Btn_block_multi' value='Bloquer' class='btn btn-danger mb-3'>
+</div>
+</form>
+
+
+
+<?php }else echo "<p class='lead'>Aucun produit n'est présent dans la base de donn&eacute;es</p>"; ?>
       </article>
 
     </section>
@@ -131,6 +128,13 @@ $produit = $requete->fetch();
 </div>
 
 <?php 
+   if(isset($_GET['block'])){
+    if($_GET['block']==0){
+       echo "<script>alert('Aucun changement n'a été effectué.');</script>";
+    }else{
+      echo "<script>alert('Le blocage de produits a été mis à jour.');</script>";
+    }
+}
 
   include 'footer.php';
 ?>

@@ -15,7 +15,7 @@ $search=str_replace(" ", "%", $_POST['recherche']);
 $search="%".$search."%";
 
 //lancement de la requête qui permettra de recupérer toutes les infos sur le produit $pro_id
-$requete = $db->prepare("SELECT pro_id, pro_libelle, pro_ref, pro_prix, pro_photo, pro_cat_id, pro_description, pro_stock, cat_nom FROM produits INNER JOIN categories on produits.pro_cat_id=categories.cat_id WHERE pro_description LIKE :search OR pro_libelle LIKE :search ORDER BY pro_cat_id, pro_libelle");
+$requete = $db->prepare("SELECT pro_id, pro_libelle, pro_ref, pro_prix, pro_photo, pro_cat_id, pro_description, pro_stock, cat_nom FROM produits INNER JOIN categories on produits.pro_cat_id=categories.cat_id WHERE pro_description LIKE :search OR cat_nom LIKE :search OR pro_libelle LIKE :search ORDER BY pro_cat_id, pro_libelle");
 $requete->bindValue(":search", $search, PDO::PARAM_STR);
 $requete->execute();
 $produit = $requete->fetch();
@@ -60,12 +60,12 @@ while (isset($produit->pro_id)){
               <td><a href='details.php?pro_id=<?=$produit->pro_id; ?>'
                   class='lienDetails'><?=$produit->pro_libelle; ?></a></td>
               <td><?=$produit->pro_prix; ?>€</td>
-              <td><?php 
-                    if ($produit->pro_stock==0) echo "<div class='etiquette bg-warning'>rupture de stock</div>";
-                    else echo $produit->pro_stock;
-                  ?>
+              <td><?php if ($produit->pro_stock==0) echo "<img src='./jarditou_css/src/img/stock_epuise.png' style='width:6rem' alt='Rupture de stock!' title='Rupture de stock.' />"; else echo $produit->pro_stock; ?>
               </td>
-              <td><?=$produit->pro_description; ?></td>
+              <td class='text-justify'><?php
+              if(strlen($produit->pro_description)>200){
+                echo substr($produit->pro_description,0,200)."...";
+              }else echo $produit->pro_description; ?></td>
             </tr>
 
             <?php 

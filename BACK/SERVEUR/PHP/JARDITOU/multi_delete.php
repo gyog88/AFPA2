@@ -17,7 +17,7 @@ if (isset($_GET['pageno'])) {
 }
 
 //on définit le nombre de pages à afficher
-$no_of_records_per_page = 30;
+$no_of_records_per_page = 10;
 $offset = ($pageno-1) * $no_of_records_per_page; 
 
 $request_total_pages = $db->prepare("SELECT COUNT(pro_id) FROM produits");
@@ -66,18 +66,20 @@ while (isset($produit->pro_id)){
   ?>
             <tr class='table-stripped table-warning' scope='row'>
               <td class="text-justify">
-                <input type="checkbox" value="<?=$produit->pro_id."_".$produit->pro_photo; ?>" name="pro_id" id="pro_id" />
+                <input type="checkbox" value="<?=$produit->pro_id."_".$produit->pro_photo; ?>" name="pro_id[]" id="<?=$produit->pro_id."_".$produit->pro_photo; ?>" />
               </td>
-              <td><?=$produit->pro_ref; ?></td>
+              <td><label for="<?=$produit->pro_id."_".$produit->pro_photo; ?>"><?=$produit->pro_ref; ?></label></td>
               <td><a href='details.php?pro_id=<?=$produit->pro_id; ?>'
                   class='lienDetails'><?=$produit->pro_libelle; ?></a></td>
               <td><?=$produit->pro_prix; ?>€</td>
-              <td><?php 
-                    if ($produit->pro_stock==0) echo "<div class='etiquette bg-warning'>rupture de stock</div>";
-                    else echo $produit->pro_stock;
-                  ?>
+              <td><?php if ($produit->pro_stock==0) echo "<img src='./jarditou_css/src/img/stock_epuise.png' style='width:6rem' alt='Rupture de stock!' title='Rupture de stock.' />"; else echo $produit->pro_stock; ?>
               </td>
-              <td class="text-justify"><?=$produit->pro_description; ?></td>
+              <td class="text-justify">
+              <?php
+              if(strlen($produit->pro_description)>200){
+                echo substr($produit->pro_description,0,200)."...";
+              }else echo $produit->pro_description; ?>
+              </td>
               <td><?=$produit->pro_d_ajout; ?></td>
               <td><?php 
                     if($produit->pro_bloque>0) echo "<div class='etiquette bg-danger'>BLOQU&Eacute;</div>"; ?>
@@ -119,16 +121,6 @@ $produit = $requete->fetch();
   </div>
 </div>
 
-<?php 
-  if(isset($_GET['ajout'])){
-    echo "<script>alert('Votre nouveau produit a bien été ajouté à la base de données');</script>";
-  }
-  if(isset($_GET['modif'])){
-    echo "<script>alert('Les modifications apportées à votre produit ont bien été enregistrées.');</script>";
-  }
-  if(isset($_GET['supp'])){
-    echo "<script>alert('Le produit a été supprimé.');</script>";
-  }
-
+<?php
   include 'footer.php';
 ?>

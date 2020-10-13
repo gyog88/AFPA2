@@ -47,7 +47,7 @@
     <!--menu du haut-->
     <div class="row p-0 m-0 float-left w-100 bg-dark text-light">
       <div class="col-12 col-sm-12 p-0 m-0">
-        <nav class="navbar navbar-expand-lg navbar-light float-left w-100 align-items-center align-items-sm-center">
+        <nav class="navbar navbar-expand-lg navbar-dark float-left w-100 align-items-center align-items-sm-center">
           <div class="h4">Jarditou.com</div>
 
           <!--affichage du bouton Toggler (qui fera défiler le menu haut sur les écran <992px)-->
@@ -90,7 +90,7 @@
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <a class="dropdown-item" href="add.php">Ajout</a>
-    <a class="dropdown-item" href="#">Modification</a>
+    <a class="dropdown-item" href="multi_block.php">Blocage</a>
     <a class="dropdown-item" href="multi_delete.php">Suppression</a>
   </div>
 </div>

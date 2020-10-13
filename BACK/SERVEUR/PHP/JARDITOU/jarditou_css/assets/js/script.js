@@ -1,9 +1,9 @@
-alertConfig={
+/*alertConfig={
     boxBgClass:"", //Background class
     boxBgColor:"blue",
     boxBtnCloseClass:"btn", //Button close class
  };
-
+*/
 /*
 
 
@@ -96,10 +96,12 @@ document.querySelector("#Envoyer_form_contact").onclick=function(){
     return envoyerForm;
 
 };
-*/
+
 var hello=document.querySelector("#form_MAJ_produit").onsubmit=function(){
 
 
     return confirm("Confirmez-vous l'enregistrement de ces données?");
 
 };
+
+*/

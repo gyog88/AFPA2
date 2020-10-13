@@ -99,7 +99,7 @@ if(isset($produit->Err_pro_photo)){
 <div class="row m-0 p-0 mt-0 ">
     <div class="col-12 col-sm-12 p-3 p-sm-3 mb-3 mb-sm-3 shadow">
         <section>
-            <!-- on masque le titre de la page. Balise H1 aide au référencement Google-->
+
             <h1>Modification du produit : <i><?=$produit->pro_libelle;?></i></h1>
 
             <article class="w-100 w-sm-100">

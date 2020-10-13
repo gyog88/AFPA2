@@ -172,5 +172,9 @@
 
 
 <?php 
-unset($produit);
+
+if(isset($_GET['modif'])){
+    echo "<script>alert('Les modifications apportées à votre produit ont bien été enregistrées.');</script>";
+  }
+
 include 'footer.php'; ?>

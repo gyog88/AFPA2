@@ -191,7 +191,7 @@ if($listError!=""){
   //libère la connexion au serveur de BDD
   $requete->closeCursor();
 
-  header("Location:tableau.php?pro_id=$produit->pro_id&&modif=ok");
+  header("Location:details.php?pro_id=$produit->pro_id&&modif=ok");
   exit();
 }
 ?>

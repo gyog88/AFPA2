@@ -9,7 +9,7 @@
                 <p><i>* Ces zones sont obligatoires.</i></p>
 
                 <!--Début du Formulaire---------------------------------------->
-                <form method="POST" action="#"
+                <form method="POST" action="contact_script.php"
                     id="form_contact1" name="form_contact1" class="form-block">
                     <div class="form-group ">
                         <fieldset class="pb-4 pb-sm-4">

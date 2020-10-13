@@ -230,7 +230,9 @@ $requeteCategories->execute();
                              
                                     <label class="form-check-label" for="pro_no">
                                     <input type="radio" id="pro_no" name="pro_bloque" class="form-control-input" value='0'
-                                        <?php if(isset(($produit->pro_bloque))&&(($produit->pro_bloque)!=1)) echo "checked"; ?> />
+                                        <?php if(!isset($produit->pro_bloque)){
+                                            echo "checked";                                            
+                                        }elseif($produit->pro_bloque!=1) echo "checked"; ?> />
                                     Non</label>
                                 
                             </div>
@@ -257,5 +259,11 @@ $requeteCategories->execute();
 </div> <!-- fin de container row-->
 
 <?php
+
+if(isset($_GET['ajout'])){
+    echo "<script>alert('Votre nouveau produit a bien été ajouté à la base de données');</script>";
+  }
+
+  
  include 'footer.php'; 
  ?>

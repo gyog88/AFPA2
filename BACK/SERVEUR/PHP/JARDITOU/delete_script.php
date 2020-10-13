@@ -15,7 +15,7 @@ $photo="./jarditou/src/img/".$_POST['pro_id'].".".$_POST['pro_photo'];
   if(file_exists($photo)){
     unlink($photo);
   }
-header("Location:tableau.php?supp=ok");
+header("Location:delete.php?supp=ok");
 exit(); 
 
 

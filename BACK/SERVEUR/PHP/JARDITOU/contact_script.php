@@ -1,38 +1,23 @@
 <?php
-//paramétrage de la base de données
-require "connexion_db.php";
-//connexion à la base de données
-$db = connexionBase();
-$produit=(object)$_POST;
 
-  //requête retournant la liste des référence de produits
-  $requeteReferences = $db->prepare("SELECT pro_ref FROM produits");
-  $requeteReferences->execute();
+$contact=(object)$_POST;
 
-//$tab_Ref[] représente un tableau des références déjà utilisées. On ne prend pas en compte la référénce du produit en cours dans le cas où l'utilisateur choisit de ne pas modifier la référence produit
-$tab_Ref=array();
-while ($ligneRef = $requeteReferences->fetch()) {
-    $tab_Ref[]=$ligneRef->pro_ref;
-}
-$requeteReferences->closeCursor();
+
+
 
 //tableau d'erreurs qui seront par la suite notifiées dans l'URL 
 $tabError=array();
  
 
-//--------VERIFICATION DE LA REFERENCE PRODUIT----------------
-$produit->pro_ref=strip_tags($produit->pro_ref);
-// on vérifie si une nouvelle référence a été entrée
-if(empty($produit->pro_ref)){
+//--------VERIFICATION DU NOM----------------
+$contact->name=strip_tags($contact->name);
+// on vérifie si un nom a été entrée
+if(empty($contact->name)){
   $tabError[]="Err_ref=0";
 }else{
-  // on vérifie si la nouvelle référence n'existe pas déjà (pro_ref doit être unique)
-  if(array_search($produit->pro_ref,$tab_Ref)){
-    $tabError[]="Err_ref=1";
-  }else{
     //on vérifie que la reférence entrée est valable (voir regex)
-    if(!preg_match("/^[\w]{1}+([\wáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s\d\#\$\(\)\[\]\+\*\.\_\-]{1,9})$/", $produit->pro_ref)){
-      $tabError[]="Err_ref=2";
+    if(!preg_match("/^[A-Z]{1}+([a-z\-\sáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s\d\#\$\(\)\[\]\+\*\.\_\-]{1,19})$/", $contact->name){
+      $tabError[]="Err_ref=1";
     }
   }
 }

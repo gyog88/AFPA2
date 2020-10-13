@@ -78,4 +78,16 @@ if(empty($_GET["pro_id"])){
 
 <?php 
 } //accolade de la fin du ELSE (en case d'erreur ID INTROUVABLE) 
+
+if(isset($_GET['supp'])){
+    switch($_GET['supp']){
+      case(0): echo "<script>alert('Aucun produit n'a été supprimé.');</script>";
+      break;
+      case(1):  echo "<script>alert('Votre produit a été supprimé.');</script>";
+      break;
+    case(2):   echo "<script>alert('Les produits sélectionnés ont été supprimés.');</script>";
+    break;
+    }
+  }
+  
  include 'footer.php';?>
