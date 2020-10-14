@@ -19,7 +19,6 @@ if ($_SERVER["SERVER_NAME"] == "dev.amorce.org") {
         $password="";    // Le Password pour vous identifier auprès du serveur
         $base = "jarditou";    // La bdd avec laquelle vous voulez travailler 
     }
-    // https://regexone.com/lesson/whitespaces
 
     try{
         $db = new PDO("mysql:host=$host;charset=utf8;dbname=$base", $login, $password);

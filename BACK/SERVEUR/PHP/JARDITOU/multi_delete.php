@@ -108,7 +108,7 @@ $produit = $requete->fetch();
         </ul>
         </nav>
 <div class='d-flex d-sm-flex justify-content-center'>
-    <input type='submit' name='Btn_supp_multi' id='Btn_supp_multi' value='Supprimer' class='btn btn-danger mb-3'>
+    <input type='submit' name='Btn_supp_multi' id='btnsuppmulti' value='Supprimer' class='btn btn-danger mb-3'>
 </div>
 </form>
 

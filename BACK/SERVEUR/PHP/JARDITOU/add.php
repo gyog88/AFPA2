@@ -114,7 +114,6 @@ $requeteCategories->execute();
                                             name="photoProduit">
                                         <label class="custom-file-label" for="photoProduit">Choisissez un
                                             fichier</label>
-
                                     </div>
                                 </div>
                                 <small>* Seuls les fichiers .jpg, .jpeg et .png seront acceptés</small>

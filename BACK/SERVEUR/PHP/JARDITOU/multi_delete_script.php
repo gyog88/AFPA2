@@ -25,15 +25,15 @@ $pro_photo=$prod[1];
 
  switch($nbsuppression){
   case(0):
-    header("Location:tableau.php?supp=0");
+    header("Location:multi_delete.php?supp=0");
     exit();
   break;
   case(1):
-    header("Location:tableau.php?supp=1");
+    header("Location:multi_delete.php?supp=1");
     exit();
   break;
   case($nbsuppression>1):
-    header("Location:tableau.php?supp=2");
+    header("Location:multi_delete?supp=2");
   exit(); break;
  }
 ?>

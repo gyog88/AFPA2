@@ -35,6 +35,24 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 
+
+
+    <!--librairie sweetalert pour de belles alert() -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  
+    <script src='./jarditou_css/assets/js/script.js'></script>
+
+
+    Swal.fire({
+  title: 'Error!',
+  text: 'Do you want to continue',
+  icon: 'error',
+  confirmButtonText: 'Cool'
+})
+    
+    </script>
+
+
     </body>
 
     </html>

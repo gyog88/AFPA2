@@ -19,7 +19,6 @@ while ($ligneRef = $requeteReferences->fetch()) {
 
 //tableau d'erreurs qui seront par la suite notifiées dans l'URL 
 $tabError=array();
- 
 
 //--------VERIFICATION DE LA REFERENCE PRODUIT----------------
 $produit->pro_ref=strip_tags($produit->pro_ref);
@@ -133,19 +132,6 @@ if (!(in_array($extension, $tabExtensions))){
   $uploadOk = false;
 }
 
-// Si $uploadOk est resté à TRUE, on peut avancer dans l'upload
-if ($uploadOk){
-
-  //on efface l'ancienne image (si elle existe)
-  if (file_exists($target_dir.$produit->pro_id.'.'.$produit->pro_photo)) {
-    unlink($target_dir.$produit->pro_id.'.'.$produit->pro_photo);
-  }
-//var_dump($_FILES["photoProduit"]["tmp_name"]);
-//var_dump($renamed_target_file);
-//die();
-  move_uploaded_file($_FILES["photoProduit"]["tmp_name"], $renamed_target_file);
-  $produit->pro_photo= $extension;
-}
 }
 
 //--------------------------------------------------------------
@@ -190,6 +176,16 @@ if($listError!=""){
 
   //libère la connexion au serveur de BDD
   $requete->closeCursor();
+
+  // Si $uploadOk est resté à TRUE, on peut avancer dans l'upload de l'image
+  if ($uploadOk){
+    //on efface l'ancienne image (si elle existe)
+    if (file_exists($target_dir.$produit->pro_id.'.'.$produit->pro_photo)) {
+      unlink($target_dir.$produit->pro_id.'.'.$produit->pro_photo);
+    }
+    move_uploaded_file($_FILES["photoProduit"]["tmp_name"], $renamed_target_file);
+    $produit->pro_photo= $extension;
+  }
 
   header("Location:details.php?pro_id=$produit->pro_id&&modif=ok");
   exit();
