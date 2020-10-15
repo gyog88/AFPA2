@@ -42,14 +42,6 @@
   
     <script src='./jarditou_css/assets/js/script.js'></script>
 
-
-    Swal.fire({
-  title: 'Error!',
-  text: 'Do you want to continue',
-  icon: 'error',
-  confirmButtonText: 'Cool'
-})
-    
     </script>
 
 
