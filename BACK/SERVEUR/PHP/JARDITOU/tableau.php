@@ -106,7 +106,8 @@ while (isset($produit->pro_id)){
 //on fait le fetch en fin de boucle 'while'. Il nous retourne une ligne du résultat de la requête.
   //A chaque fin de boucle, on passera à la ligne suivante du résultat de la requête.
 $produit = $requete->fetch();
-} 
+}
+ $requete->closeCursor();
  ?>
           </tbody>
         </table>

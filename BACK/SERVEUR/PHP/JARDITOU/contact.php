@@ -134,7 +134,7 @@ if(isset($contact->Err_traitement)){
                                 <div class="col">
                                     <lable for="name">Votre Nom* :</lable>
                                     <span id="errorName" class="text-danger"><?=$err_name;?></span>
-                                    <input type="text" class="form-control form-control-sm" name="name" id="name" 
+                                    <input type="text" class="form-control form-control-sm" name="name" id="name"  maxlength='50'
                                     <?php if(empty($contact->name)) echo "placeholder='Votre nom'"; else echo "value='".$contact->name."'"; ?> autofocus />
                                     
                                 </div>
@@ -145,7 +145,7 @@ if(isset($contact->Err_traitement)){
                                 <div class="col">
                                     <label for="surname">Votre Pr&eacute;nom* :</label>
                                     <span id="errorSurname" class="text-danger"><?=$err_surname;?></span>
-                                    <input type="text" class="form-control form-control-sm" name="surname" id="surname"
+                                    <input type="text" class="form-control form-control-sm" name="surname" id="surname" maxlength='50'
                                     <?php if(empty($contact->surname)) echo "placeholder='Votre pr&eacute;nom'"; else echo "value='".$contact->surname."'"; ?> />
                                 </div>
                             </div>
@@ -181,7 +181,7 @@ if(isset($contact->Err_traitement)){
                                 <div class="col">
                                     <label for="address">Adresse :</label>
                                     <span id="errorAddress" class="text-danger"><?=$err_address;?></span>
-                                    <input type="text" class="form-control form-control-sm" name="address" id="address"
+                                    <input type="text" class="form-control form-control-sm" name="address" id="address" maxlength='200'
                                     <?php if(empty($contact->address)) echo "placeholder='Votre adresse'"; else echo "value='".$contact->address."'"; ?> />
                                 </div>
                             </div>
@@ -202,7 +202,7 @@ if(isset($contact->Err_traitement)){
                                 <div class="col">
                                     <label for="city">Ville :</label>
                                     <span id="errorCity" class="text-danger"><?=$err_city;?></span>
-                                    <input type="text" class="form-control form-control-sm" id="city" name="city"
+                                    <input type="text" class="form-control form-control-sm" id="city" name="city" maxlength='50'
                                     <?php if(empty($contact->city)) echo "placeholder='Votre ville'"; else echo "value='".$contact->city."'"; ?> />
                                  </div>
                             </div>
@@ -212,7 +212,7 @@ if(isset($contact->Err_traitement)){
                                 <div class="col">
                                     <label for="email">Email* :</label>
                                     <span id="errorEmail" class="text-danger"><?=$err_email;?></span>
-                                    <input type="email" class="form-control form-control-sm" name="email" id="email" 
+                                    <input type="email" class="form-control form-control-sm" name="email" id="email" maxlength='100'
                                     <?php if(empty($contact->email)) echo "placeholder='john.smith@afpa.fr'"; else echo "value='".$contact->email."'"; ?>  />
                                     
                                 </div>

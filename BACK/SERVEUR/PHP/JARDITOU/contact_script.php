@@ -13,7 +13,7 @@ if(empty($contact->name)){
   $tabError[]="Err_name=0";
 }else{
   //on vérifie que le nom entré est valable (voir regex)
-  if(!preg_match(("/^[A-Za-z\-\sáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\d]{1,20}$/"), $contact->name)){
+  if(!preg_match(("/^[A-Za-z\-\sáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\d]{1,50}$/"), $contact->name)){
     $tabError[]="Err_name=1";
   }
 }
@@ -27,7 +27,7 @@ if($contact->surname==""){
   $tabError[]="Err_surname=0";
 }else{
   //on vérifie que le prenom entré est valable (voir regex)
-  if(!preg_match(("/^[A-Za-z\-\sáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\d]{1,20}$/"), $contact->surname)){
+  if(!preg_match(("/^[A-Za-z\-\sáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\d]{1,50}$/"), $contact->surname)){
     $tabError[]="Err_surname=1";
   }
 }
@@ -56,7 +56,7 @@ if($contact->DOB==""){
 //N.B. champ adresse non obligatoire
 if(!empty($contact->address)){
   $contact->address=strip_tags($contact->address);
-  if(!preg_match("/^[\wáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s\d\#\(\)\.\,\_\-]{1,149}$/", $contact->address)){
+  if(!preg_match("/^[\wáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s\d\#\(\)\.\,\_\-]{1,200}$/", $contact->address)){
     $tabError[]="Err_address=0";
   }
 }
@@ -79,7 +79,7 @@ if($contact->postcode==""){
 $contact->city=strip_tags($contact->city);
 if(!empty($contact->city)){
   //on vérifie que la ville entrée est valable (voir regex)
-  if(!preg_match(("/^[a-zA-Z\-\sáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s\d\(\)\.\-\/]{1,30}$/"), $contact->city)){
+  if(!preg_match(("/^[a-zA-Z\-\sáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s\d\(\)\.\-\/]{1,50}$/"), $contact->city)){
     $tabError[]="Err_city=0";
   }
 }
