@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Sembilu';
+    src: url('./fonts/Sembilu-Regular.ttf');
+
+    font-family: 'Cartica';
+    src: url('./fonts/Cartica_.otf');
+
+
+    font-family: 'JohnDoe';
+    src: url('./fonts/CFJohnDoePERSONALUSE-Regula.ttf');
+
+}
+
+.entete{
+font-size:3rem;
+font-family: JohnDoe;
+}
