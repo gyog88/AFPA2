@@ -29,28 +29,36 @@
 
 <body>
     <!--DEBUT CONTAINER -->
-    <div class="container">
-        <div class="row p-0 m-0 float-left w-100 bg-dark text-light">
-            <div class="col-12 col-sm-12 p-0 m-0">
-        <header>
-            <a href='index.html' title="Retour vers l'accueil">
-                <div class="d-flex justify-content-start">
-            <img src='./src/img/escape_key.png' alt="logo escape key" />
-            <div class="d-flex flex-column">
-            <div class="entete" >Geoffrey Guilbert</div>
-            <div>Concepteur / développeur d'applications web/web mobile</div>
+    <div class="container d-flex flex-column border border-light rounded">
+        
+        
+        
+        <div class="col-12 col-sm-12 p-0 m-0">
+            <header class="d-flex justify-content-between pt-3">
+                <a href='index.html' title="Retour vers l'accueil" class="d-flex justify-content-start">
+                    <img src='./src/img/escape_key.png' alt="logo escape key" />
+                    <div class="d-flex flex-column">
+                        <div class="entete" >Geoffrey Guilbert</div>
+                        <div class="subtitle">Concepteur / développeur d'applications</div>
+                    </div>     
+                </a>
+                <img src="./src/img/icebergBlanc.png" alt="iceberg_success" class="iceberg" title="Success is an iceberg."> 
+                <div class="d-flex flex-column align-items-between">
+                    <img src="./src/img/french.png" title="version Française" alt="drapeau Français" />
+                    <img src="./src/img/english.png" title="English version" alt="English flag" />
+                </div>
+            </header>
         </div>
-        </div> 
-            </a>
-        </header>
-    </div>
-</div>
+
+
+
         <!--menu du haut-->
-        <div class="row p-0 m-0 float-left w-100 bg-dark text-light">
-            <div class="col-12 col-sm-12 p-0 m-0">
-                <nav
-                    class="navbar navbar-expand-lg navbar-dark float-left w-100 align-items-center align-items-sm-center">
-                    <div class="h4">Mon CV</div>
+        <div class="row menu px-2">
+            <div class="col-12 col-sm-12">
+                <nav class="navbar navbar-expand-lg">
+                    <i class="fas fa-angle-double-right"></i>
+
+
 
                     <!--affichage du bouton Toggler (qui fera défiler le menu haut sur les écran <992px)-->
                     <button class="navbar-toggler px-1 py-1 mx-1 my-2 float-right" type="button" data-toggle="collapse"
@@ -65,72 +73,32 @@
                         <div class="d-flex d-sm-flex justify-content-between justify-content-sm-between w-100">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link text-light <?php if(basename($_SERVER['PHP_SELF'])=="index.php") echo "active"; ?> "
-                                        href="index.php">Accueil</a>
+                                    <i class="fas fa-home"></i>
+                                </li>
+
+
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                        href="#">Formation</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-light <?php if(basename($_SERVER['PHP_SELF'])=="tableau.php") echo "active"; ?>"
-                                        href="tableau.php">Tableau</a>
+                                    <a class="nav-link"
+                                        href="#">Expériences Professionnelles</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-light <?php if(basename($_SERVER['PHP_SELF'])=="contact.php") echo "active"; ?>"
-                                        href="contact.php">Contact</a>
+                                    <a class="nav-link" href="#">Projets</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="far fa-id-card"></i> Contact</a>
                                 </li>
                             </ul>
-                            <!-- formulaire de recherche-->
-                            <ul class="navbar-nav d-flex d-sm-flex
-                flex-column flex-sm-column flex-lg-row
-                align-items-start align-items-sm-start align-items-lg-center
-                justify-content-end justify-content-sm-end">
-                                <li class="nav-item">
-
-
-
-                                    <div class="dropdown show">
-                                        <a href="#" role="button" class="nav-link text-light" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Gestion des Produits
-                                        </a>
-
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="add.php">Ajout</a>
-                                            <a class="dropdown-item" href="multi_block.php">Blocage</a>
-                                            <a class="dropdown-item" href="multi_delete.php">Suppression</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <form action="recherche.php" class="form-inline" method="POST" id="form_recherche"
-                                        name="form_recherche">
-                                        <div class="form-group">
-                                            <input type="text" class="input-sm m-1 m-sm-1 m-lg-0 mr-lg-1"
-                                                name="recherche" id="recherche" placeholder="Recherche produit" />
-                                            <button type="submit"
-                                                class="btn btn-success btn-sm m-1 m-sm-1 ml-auto ml-sm-auto m-lg-0 mr-lg-1">
-                                                Rechercher
-                                            </button>
-                                        </div>
-                                        <!-- fin de form-group-->
-                                    </form>
-                                </li>
-                            </ul>
+                           
                         </div><!-- fin de div d-flex-->
                     </div><!-- fin de collapse-->
                 </nav>
             </div><!-- fin de col-->
         </div>
         <!--- fin de row-->
-
-        <!-- banderole publicitaire -->
-        <div class="row">
-            <div class="col-12 col-sm-12">
-                <img class="img-fluid w-100" src="./jarditou_css/src/img/promotion.jpg"
-                    alt="promotion sur lames de terrasses" />
-            </div>
-            <!--fin de col-->
-        </div>
-
-        <!--fin de row-->
 
 
 

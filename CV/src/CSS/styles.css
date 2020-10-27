@@ -1,17 +1,75 @@
+
+body{
+    background-color: #FA6900;
+}
+
 @font-face {
-    font-family: 'Sembilu';
-    src: url('./fonts/Sembilu-Regular.ttf');
-
-    font-family: 'Cartica';
-    src: url('./fonts/Cartica_.otf');
-
-
     font-family: 'JohnDoe';
     src: url('./fonts/CFJohnDoePERSONALUSE-Regula.ttf');
+}
+
+@font-face{
+font-family: 'Cartica';
+src: url('./fonts/Cartica_.otf');
+}
+
+@font-face{
+    font-family: 'Sembilu';
+src: url('./fonts/Sembilu-Regular.ttf');
+}
+
+@font-face{
+    font-family: 'Deventer';
+src: url('./fonts/Deventer.ttf');
+}
+
+.container{
+    margin:auto;
+padding:0px;
+}
+
+
+header{
+    background-color:#F38630;
+    padding:0px;
+    margin:0px;
+}
+.entete, .entete:visited, .entete:hover{
+font-size:3rem;
+font-family: Deventer;
+color:white;
+text-decoration:none;
+padding-left:3px;
 
 }
 
-.entete{
-font-size:3rem;
-font-family: JohnDoe;
+.subtitle{
+font-size: 1.2rem;
+font-family: Cartica;
+color:white;
+}
+
+.menu{
+    background-color: #E0E4CC;
+    margin:0px;
+    
+}
+
+.nav-link, .nav-link:hover, .nav-link:visited{
+color:#3B1A01;
+}
+.nav-link:active{
+    font-weight:bold;
+}
+.nav-item{
+    text-align: center;
+}
+
+
+.iceberg{
+    position: absolute;
+    left:70%;
+    bottom:-70%;
+    width:250px;
+    height:auto;
 }
