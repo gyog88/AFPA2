@@ -1,6 +1,11 @@
 
 body{
-    background-color: #FA6900;
+    background-color: #033649;
+    color: #031634;
+}
+
+a, a:hover, a:visited{
+    color: #031634;
 }
 
 @font-face {
@@ -25,14 +30,21 @@ src: url('./fonts/Deventer.ttf');
 
 .container{
     margin:auto;
-padding:0px;
+    padding:0px;
+    height:auto;
+    background-color:white;
+    border: 1px solid white;
+    border-radius:15px;
+    
 }
 
 
 header{
-    background-color:#F38630;
+    background-color:#036564;
     padding:0px;
     margin:0px;
+    border-top-left-radius:15px;
+    border-top-right-radius:15px;
 }
 .entete, .entete:visited, .entete:hover{
 font-size:3rem;
@@ -50,8 +62,9 @@ color:white;
 }
 
 .menu{
-    background-color: #E0E4CC;
+    background-color:  #CDB380;
     margin:0px;
+    border-top: solid 5px #036564;
     
 }
 
@@ -62,14 +75,117 @@ color:#3B1A01;
     font-weight:bold;
 }
 .nav-item{
-    text-align: center;
+    text-align:center;
 }
 
 
 .iceberg{
     position: absolute;
-    left:70%;
-    bottom:-70%;
+    left:60%;
+
     width:250px;
     height:auto;
+}
+
+.bubble{
+    padding:20px;
+    margin:5px;
+    text-align:left;
+    border-radius: 40px;
+    border: 3px solid #69D2E7;
+
+}
+
+.menubas{
+    margin:0px;
+    border-bottom-left-radius:15px;
+    border-bottom-right-radius:15px;
+    background-color: #031634;
+}
+
+
+
+/*table LIFELINE*/
+
+.lifeline{
+    width:100%;
+    height:auto;
+    border:none;
+}
+
+.lifeline tbody td{
+    width:50%;
+    height:auto;
+    padding:1%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*bulles dans le tableau LIFELINE*/
+.speech-bubble-right {
+	position: relative;
+    background: #E8DDCB;
+    border: 2px solid #CDB380;
+    border-radius: 1.2em;
+    padding:1em;
+    margin-left:.7em;
+}
+
+.speech-bubble-right:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 1.25em solid transparent;
+	border-right-color: #CDB380;
+	border-left: 0;
+	border-bottom: 0;
+	margin-top: -0.625em;
+	margin-left: -1.25em;
+}
+
+
+.speech-bubble-left {
+	position: relative;
+    background: #E8DDCB;
+    border: 2px solid #CDB380;
+    border-radius: 1.2em;
+    padding:1em;
+    margin-right:.7em;
+}
+
+.speech-bubble-left:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+    border: 1.25em solid transparent;
+	border-left-color: #CDB380;
+	border-right: 0;
+	border-bottom: 0;
+	margin-top: -0.625em;
+	margin-right: -1.25em;
+}
+
+.IDcard{
+    border: 2px solid #036564;
+    border-radius:1.2em;
+    padding:2em;
+    margin:1em;
 }
