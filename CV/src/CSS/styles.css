@@ -1,13 +1,4 @@
 
-body{
-    background-color: #033649;
-    color: #031634;
-}
-
-a, a:hover, a:visited{
-    color: #031634;
-}
-
 @font-face {
     font-family: 'JohnDoe';
     src: url('./fonts/CFJohnDoePERSONALUSE-Regula.ttf');
@@ -28,6 +19,21 @@ src: url('./fonts/Sembilu-Regular.ttf');
 src: url('./fonts/Deventer.ttf');
 }
 
+
+
+
+
+
+
+body{
+    background-color:#5e8c61;
+}
+
+a, a:hover, a:visited{
+    color: #031634;
+}
+
+
 .container{
     margin:auto;
     padding:0px;
@@ -35,17 +41,16 @@ src: url('./fonts/Deventer.ttf');
     background-color:white;
     border: 1px solid white;
     border-radius:15px;
-    
 }
 
-
 header{
-    background-color:#036564;
+    background-color: #4e6151;
     padding:0px;
     margin:0px;
     border-top-left-radius:15px;
     border-top-right-radius:15px;
 }
+
 .entete, .entete:visited, .entete:hover{
 font-size:3rem;
 font-family: Deventer;
@@ -62,14 +67,12 @@ color:white;
 }
 
 .menu{
-    background-color:  #CDB380;
+    background-color:#3b322c;
     margin:0px;
-    border-top: solid 5px #036564;
-    
 }
 
 .nav-link, .nav-link:hover, .nav-link:visited{
-color:#3B1A01;
+    color:white;
 }
 .nav-link:active{
     font-weight:bold;
@@ -78,21 +81,12 @@ color:#3B1A01;
     text-align:center;
 }
 
-
-.iceberg{
-    position: absolute;
-    left:60%;
-
-    width:250px;
-    height:auto;
-}
-
 .bubble{
     padding:20px;
     margin:5px;
     text-align:left;
     border-radius: 40px;
-    border: 3px solid #69D2E7;
+    border: 3px solid  #ABDFF1;
 
 }
 
@@ -100,7 +94,7 @@ color:#3B1A01;
     margin:0px;
     border-bottom-left-radius:15px;
     border-bottom-right-radius:15px;
-    background-color: #031634;
+    background-color: #3b322c;
 }
 
 
@@ -122,7 +116,14 @@ color:#3B1A01;
 
 
 
-
+/* for poppers */
+#tooltip {
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
 
 
 
@@ -136,8 +137,8 @@ color:#3B1A01;
 /*bulles dans le tableau LIFELINE*/
 .speech-bubble-right {
 	position: relative;
-    background: #E8DDCB;
-    border: 2px solid #CDB380;
+    background:  #ABDFF1;
+    border: 2px solid #E1DDDB;
     border-radius: 1.2em;
     padding:1em;
     margin-left:.7em;
@@ -151,7 +152,7 @@ color:#3B1A01;
 	width: 0;
 	height: 0;
 	border: 1.25em solid transparent;
-	border-right-color: #CDB380;
+	border-right-color: #E1DDDB;
 	border-left: 0;
 	border-bottom: 0;
 	margin-top: -0.625em;
@@ -189,3 +190,68 @@ color:#3B1A01;
     padding:2em;
     margin:1em;
 }
+
+
+
+
+/*-------------------BALLOONS------------------------------*/
+
+
+  #balloon-container {
+      position:relative;
+    height: 50vh;
+    padding: 1em;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+  
+  .balloon {
+    height: 125px;
+    width: 105px;
+    border-radius: 75% 75% 70% 70%;
+    position: relative;
+text-align:center;
+vertical-align: center;
+padding-top:50px;
+color:brown;
+  }
+  
+  .balloon:before {
+    content: "";
+    height: 75px;
+    width: 1px;
+    padding: 1px;
+    background-color: #FDFD96;
+    display: block;
+    position: absolute;
+    top: 125px;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  
+  .balloon:after {
+      content: "▲";
+      text-align: center;
+      display: block;
+      position: absolute;
+      color: inherit;
+      top: 120px;
+      left: 0;
+      right: 0;
+      margin: auto;
+  }
+  
+  @keyframes float {
+    from {transform: translateY(100vh);
+    opacity: 1;}
+    to {transform: translateY(-300vh);
+    opacity: 0;}
+  }
+
+
+
+
+  /*------------------------------------------------------------------------------*/

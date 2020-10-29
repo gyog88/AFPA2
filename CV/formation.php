@@ -1,5 +1,19 @@
 <?php
     include 'header.php';
+    $cda = "Concepteur Développeur d’Applications (CDA)
+    Compétences
+    Maquetter une application
+    Développer une interface utilisateur de type desktop
+    Développer des composants d’accès aux données
+    Développer la partie front-end et back-end d’une interface utilisateur web
+    Concevoir, mettre en place et développer des composants dans le langage d’une base de données
+    Collaborer à la gestion d’un projet informatique
+    Développer des composants métier
+    Construire une application organisée en couches
+    Développer une application mobile Préparer et exécuter les plans de tests d’une application
+    Préparer et exécuter le déploiement d’une application S'approprier une démarche de développement agile ( SCRUM )
+    Environnement technique
+    - Langages : PHP, Java - Bases de données : MySQL/MariaDB, Laragon/WAMP, PhpMyAdmin/HeidiSQLModélisation : Merise, UMLOutils de développement : Suite Jetbrain (IntelliJn PHPStorm, Android Studio), VSCode, NetBeansGestion de versions : Git, GitHubWeb : HTML 5, CSS 3, Bootstrap, Javascript, AJAX, JQuery, VueJSFramework MVC: Symfony, Java FXApplications : JDBC pattern DAOMobile : Java Android Tests unitaires : PHP Unit (pour Symfony)";
 ?>
 
 
@@ -9,6 +23,16 @@
 
         <div class="row m-0">
             <div class="col-12 col-sm-12 m-auto ">
+            <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on top
+</button>
+
+
+<button id="button" aria-describedby="tooltip">I'm a button</button>
+<div id="tooltip" role="tooltip">I'm a tooltip</div>
+
+
+
                 <table class="lifeline">
                     <thead>
                         <tr>
@@ -21,8 +45,13 @@
                        <tr>
                             <td style="width:50%; border-right: 5px solid #FA6900">
                                 <div class='speech-bubble-left'>
-                                    <b>Concepteur/développeur d'applications</b> <a href='./src/docs/environnement_technique_CDA.pdf' target='blank'><i class="far fa-file-alt"></i></a>
-                                    <br /><a href='www.afpa.fr/centre/centre-d-amiens'
+                                    <b>Concepteur/Développeur d'Applications</b>
+                                    <button type='button'  class="btn btn-secondary"  data-container="body" data-toggle="popover" data-placement="right" data-content="<?=$cda;?>" >
+                                        <i class="far fa-file-alt"></i>
+                                    </button>
+      
+
+                                    <br /><a href='https://www.afpa.fr/centre/centre-d-amiens' target='blank'
                                         title="Aller vers le site de l'AFPA" title='voir le programme'>Centre AFPA d'AMIENS</a>
                                     <br/>D'Octobre 2020 à Juillet 2021
                                 </div>
@@ -37,8 +66,8 @@
                             </td>
                             <td style="width:50%">
                                 <div class='speech-bubble-right'>
-                                    <b>Techniques de Base en développement web</b>
-                                    <br /><a href='www.afpa.fr/centre/centre-d-amiens' target='blank'
+                                    <b>Techniques de Base en Développement d'Applications</b> <a href='./src/docs/Programme_TBDA.pdf' target='blank' title='accéder au programme'><i class="far fa-file-alt"></i></a>
+                                    <br /><a href='https://www.afpa.fr/centre/centre-d-amiens' target='blank'
                                         title="Aller vers le site de l'AFPA">Centre AFPA d'AMIENS</a>
                                     <br />De Août 2020 à Octobre 2020
                                 </div>
@@ -116,7 +145,7 @@
                         <tr>
                             <td style='width:50%; border-right: 5px solid #FA6900'>
                                 <div class='speech-bubble-left'>
-                                    <b>Baccalauréat Scientifique, Option Sciences de la Vie et de la Terre</b>
+                                    <b>Baccalauréat Scientifique<br/>Option Sciences de la Vie et de la Terre</b>
                                     <br /><a
                                         href='http://lyceewoillez.fr/'
                                         target='blank' title="Aller vers le site du Lycée Eugène Woillez">Lycée Eugène Woillez, Montreuil sur Mer, France</a>

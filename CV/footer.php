@@ -36,8 +36,12 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 
+
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
     <!--librairie sweetalert pour de belles alert() -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="./JS/script.js"></script>
 
 

@@ -42,8 +42,6 @@
                             <div class="subtitle">Concepteur / développeur d'applications</div>
                         </div>
                     </a>
-                    <img src="./src/img/G-Gaelic.png" alt="iceberg_success" class="iceberg" style='width:100px'
-                        title="Success is an iceberg.">
                     <div class="d-flex flex-column align-items-between">
                         <a href='#'><img src="./src/img/french.png" title="version Française" alt="drapeau Français" /></a>
                         <a href='#'><img src="./src/img/english.png" title="English version" alt="English flag" /></a>
@@ -78,6 +76,13 @@
                                     <a class="nav-link" href="experiencespro.php"><i class="fas fa-briefcase"></i> Expériences
                                         Professionnelles</a>
                                 </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="competences.php"><i class="fas fa-cog"></i>
+
+</i>Compétences</a>
+                                </li>
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="projets.php"><i class="fas fa-wrench"></i> Projets</a>
                                 </li>
